@@ -2,37 +2,8 @@
     width: 100%;
     // border-bottom: 1px solid rgb(34, 34, 34);
 
-    #searchbar{
-        border:none;
-        border-bottom: 1px solid rgb(36, 36, 36);
-        background-color: transparent;
-        width:100%;
-    }
-    #searchbar:focus{
-        outline: none;
-    }
-    .btn{
-        border:none;
-        cursor: none;
-    }
 }
 
-.container {
-    text-align: center;
-    width: 100%;
-    // h1{
-    //     text-align: center;
-    // }
 
-    .mainTopSelection{
-        display:inline-flex;
-        width: 40%;
-        background-color: lightgray;
-        margin-right:1%;
-        span{
-            width:100%;
-            text-align: center;
-        }
-    }
-}
+
 

@@ -13,6 +13,9 @@ import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { PanierComponent } from './pages/panier/panier.component';
 
+import { CardProductComponent } from './layout/card-product/card-product.component';
+
+
 
 const routes: Routes = [
 
@@ -26,6 +29,7 @@ const routes: Routes = [
   { path: 'accessoires', component: AccessoiresComponent },
   { path: 'promotions', component: PromotionsComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'test', component: CardProductComponent },
 
 ];
 

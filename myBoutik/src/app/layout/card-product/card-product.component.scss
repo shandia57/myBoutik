@@ -1,0 +1,17 @@
+.card{
+    cursor:pointer;
+}
+
+
+.card:hover{
+    h5{
+        color:#808080;
+        text-decoration:underline;
+    }
+}
+
+
+.card-footer{
+    padding: 15px;
+}
+

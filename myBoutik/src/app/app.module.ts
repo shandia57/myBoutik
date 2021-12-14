@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +15,14 @@ import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
+import { CardProductComponent } from './layout/card-product/card-product.component';
+
+// Firebase
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { environment } from '../environments/environment';
+import { AdminComponent } from './admin/admin/admin.component';
 
 
 @NgModule({
@@ -28,10 +38,17 @@ import { HomepageComponent } from './pages/homepage/homepage.component';
     ConnexionComponent,
     PanierComponent,
     HomepageComponent,
+    CardProductComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

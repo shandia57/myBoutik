@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+
+.d-flex{
+    .form-select{
+        border:none;
+        text-align:center;
+    }
+    #searchbar{
+        border:none;
+        border-bottom: 1px solid rgb(36, 36, 36);
+        background-color: transparent;
+        width:100%;
+    }
+    div{
+        display: inline-block;
+    }
+    #searchbar:focus{
+        outline: none;
+        width: 100%;
+    }
+    .btn{
+        border:none;
+        cursor: none;
+    }
+}
+
+
+

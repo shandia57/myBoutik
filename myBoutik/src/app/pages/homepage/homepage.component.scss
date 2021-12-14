@@ -1,0 +1,25 @@
+.container {
+    text-align: center;
+    width: 100%;
+
+    h2, h1{
+        text-transform: uppercase ;
+    }
+
+    .mainTopSelection{
+        display:inline-flex;
+        width: 40%;
+        height: 300px;
+        margin-right:1%;
+    }
+    .desktop_1{
+        background: center url('../../../assets/images/home/image_desktop_1.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+    .desktop_2{
+        background: center url('../../../assets/images/home/image_desktop_2.jpg');
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
