@@ -27,41 +27,12 @@
             <div class="row justify-content-md-center marginTop">
 
 
-                <div class="col-md-auto">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
+                <div *ngFor="let product of products | async; let i = index;" class="col-md-auto">
+                    <app-card [productTitle]="product.title" [productImage]="product.url" [productPrice]="product.price"
+                        id="{{product.id}}">
                     </app-card>
                 </div>
 
-                <div class="col-md-auto">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
-                <div class="col-md-auto ">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
-                <div class="col-md-auto ">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
-                <div class="col-md-auto ">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
-                <div class="col-md-auto ">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
-                <div class="col-md-auto ">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
-
-
-                <div class="col-md-auto ">
-                    <app-card [productTitle]="productTitle" [productImage]="productImage" [productPrice]="productPrice">
-                    </app-card>
-                </div>
 
 
             </div>
