@@ -28,44 +28,23 @@
 
     <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalAddProduct">Ajouter un
         produit</button>
-</div>
 
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="modalAddProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="modal-title" id="exampleModalLabel">Nouveau produit</h2>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-
-
-
-            <div class="modal-body">
-                <div class="mb-3">
-                    <input type="file" accept="image/*" class="form-control" (change)="showPreview($event)">
-                    <img id="myimg" [src]="imgSrc">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Titre du produit</label>
-                    <input type="text" class="form-control" [(ngModel)]="titleProduct" name="title"
-                        placeholder="Titre du produit">
-                </div>
-                <div class="mb-3">
-                    <label class="form-label">Prix du produit</label>
-                    <input type="text" class="form-control" [(ngModel)]="priceProduct" name="price"
-                        placeholder="Price du produit">
-                </div>
-
-            </div>
-            <div class=" modal-footer">
-                <button type="button" class="btn btn-primary" (click)="insert()">Ajouter ce produit</button>
-            </div>
-
+    <div class="row">
+        <div *ngFor="let product of products | async" class="col-md-auto">
+            <app-admin-product [productTitle]="product.title" [productImage]="product.url"
+                [productPrice]="product.price" id="{{product.id}}">
+            </app-admin-product>
         </div>
+
+
+
     </div>
 </div>
+
+
+
+
+
+<!-- Modal Create-->
+<app-create-product></app-create-product>

@@ -3,7 +3,6 @@ import { map, toArray } from 'rxjs/operators';
 
 
 // Angular
-import { AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
@@ -27,7 +26,7 @@ export class ProductsService {
 
 
 
-  constructor(protected storage: AngularFireStorage, protected db: AngularFireDatabase, private dbb: AngularFirestore) { }
+  constructor(protected storage: AngularFireStorage, private db: AngularFirestore) { }
 
   insertImage = () => {
     return Promise.resolve(
@@ -41,7 +40,7 @@ export class ProductsService {
     //   price: details[1],
     //   url: details[2]
     // })
-    this.dbb.collection(this.path).add({
+    this.db.collection(this.path).add({
       title: details[0],
       price: details[1],
       url: details[2]
@@ -64,7 +63,7 @@ export class ProductsService {
   }
 
   getAllProducts() {
-    return this.dbb.collection(this.path).snapshotChanges().pipe(
+    return this.db.collection(this.path).snapshotChanges().pipe(
       map((changes: any) => {
         return changes.map((doc: any) => {
           return ({ id: doc.payload.doc.id, ...doc.payload.doc.data() })
@@ -72,6 +71,39 @@ export class ProductsService {
       })
     );
   }
+
+  get(id: any): any {
+    return this.db.collection(this.path).doc(id).get().subscribe((res: any) => {
+      return ({ id: res.id, ...res.data() });
+    });
+  }
+
+  update(id: any) {
+    return this.db.collection(this.path).doc(id).update(id);
+
+  }
+  delete(id: any) {
+    this.db.doc(`films/${id}`).delete();
+  }
+
+
+  // get(id: any): any {
+  //   return new Observable(obs => {
+  //     this.filmsRef.doc(id).get().subscribe(res => {
+  //       obs.next({ id: res.id, ...res.data() });
+  //     });
+  //   });
+  // }
+
+  // update(film: Film) {
+  //   return new Observable(obs => {
+  //     this.filmsRef.doc(film.id).update(film);
+  //     obs.next();
+  //   });
+  // }
+  // delete(id: any) {
+  //   this.db.doc(`films/${id}`).delete();
+  // }
 
 
 

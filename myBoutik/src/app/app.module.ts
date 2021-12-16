@@ -17,6 +17,8 @@ import { PanierComponent } from './pages/panier/panier.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CardProductComponent } from './layout/card-product/card-product.component';
 import { AdminComponent } from './admin/admin/admin.component';
+import { AdminProductComponent } from './layout/admin/admin-product/admin-product.component';
+import { CreateProductComponent } from './admin/create-product/create-product.component';
 
 
 // Firebase
@@ -32,6 +34,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
+import { UpdateProductComponent } from './admin/update-product/update-product.component';
 
 
 @NgModule({
@@ -49,6 +52,9 @@ import { MatInputModule } from '@angular/material/input';
     HomepageComponent,
     CardProductComponent,
     AdminComponent,
+    AdminProductComponent,
+    CreateProductComponent,
+    UpdateProductComponent,
   ],
   imports: [
     BrowserModule,

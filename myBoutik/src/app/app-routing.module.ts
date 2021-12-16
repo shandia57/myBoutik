@@ -15,7 +15,8 @@ import { PanierComponent } from './pages/panier/panier.component';
 import { AdminComponent } from './admin/admin/admin.component';
 
 
-import { CardProductComponent } from './layout/card-product/card-product.component';
+import { AdminProductComponent } from './layout/admin/admin-product/admin-product.component';
+
 
 
 
@@ -32,7 +33,7 @@ const routes: Routes = [
   { path: 'promotions', component: PromotionsComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'test', component: CardProductComponent },
+  { path: 'test', component: AdminProductComponent },
 
 ];
 

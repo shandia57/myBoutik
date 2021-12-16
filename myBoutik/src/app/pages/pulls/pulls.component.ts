@@ -23,7 +23,6 @@ export class PullsComponent implements OnInit {
   constructor(private Product: ProductsService) {
     this.Product.path = "pulls";
     this.products = this.Product.getAllProducts();
-    // this.keys = this.Product.getAllKeys();
 
   }
   // 
