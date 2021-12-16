@@ -12,6 +12,8 @@ import { AccessoiresComponent } from './pages/accessoires/accessoires.component'
 import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { PanierComponent } from './pages/panier/panier.component';
+import { AdminComponent } from './admin/admin/admin.component';
+
 
 import { CardProductComponent } from './layout/card-product/card-product.component';
 
@@ -29,6 +31,7 @@ const routes: Routes = [
   { path: 'accessoires', component: AccessoiresComponent },
   { path: 'promotions', component: PromotionsComponent },
   { path: 'connexion', component: ConnexionComponent },
+  { path: 'admin', component: AdminComponent },
   { path: 'test', component: CardProductComponent },
 
 ];

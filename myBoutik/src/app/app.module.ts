@@ -16,13 +16,23 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CardProductComponent } from './layout/card-product/card-product.component';
+import { AdminComponent } from './admin/admin/admin.component';
+
 
 // Firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '../environments/environment';
-import { AdminComponent } from './admin/admin/admin.component';
+import { AdminNavComponent } from './admin/layout/admin-nav/admin-nav.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Angular Material
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
@@ -40,15 +50,26 @@ import { AdminComponent } from './admin/admin/admin.component';
     HomepageComponent,
     CardProductComponent,
     AdminComponent,
+    AdminNavComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
 
+    // Angular Material
+    MatTabsModule,
+    MatStepperModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatInputModule,
+
+
+    // Firebase
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
