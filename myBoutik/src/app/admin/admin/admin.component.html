@@ -29,17 +29,15 @@
     <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalAddProduct">Ajouter un
         produit</button>
 
-
     <div class="row">
         <div *ngFor="let product of products | async" class="col-md-auto">
             <app-admin-product [productTitle]="product.title" [productImage]="product.url"
-                [productPrice]="product.price" id="{{product.id}}">
+                [productPrice]="product.price" [productId]="product.id">
             </app-admin-product>
         </div>
-
-
-
     </div>
+
+
 </div>
 
 

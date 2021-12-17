@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from "../../services/products.service";
+import { Observable } from 'rxjs';
+import { PullServiceService } from "../../services/pulls/pull-service.service";
 
 
 @Component({
@@ -10,12 +11,9 @@ import { ProductsService } from "../../services/products.service";
 export class AdminComponent implements OnInit {
 
   // DB
-  path = "pulls";
   products!: any;
 
-
-  constructor(private Product: ProductsService) {
-    this.Product.path = "pulls";
+  constructor(private Product: PullServiceService) {
     this.products = this.Product.getAllProducts();
   }
 

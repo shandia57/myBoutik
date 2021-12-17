@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { map, toArray } from 'rxjs/operators';
-
+import { Observable } from 'rxjs';
+import { ProductModel } from "../models/product-model";
 
 // Angular
 import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
@@ -18,15 +19,16 @@ export class ProductsService {
   task?: AngularFireUploadTask;
   downloadURL: any;
 
-  public path: string = "";
+  public path?: any;
   public file?: any;
   public title?: any;
   public price?: any;
-
-
-
-
-  constructor(protected storage: AngularFireStorage, private db: AngularFirestore) { }
+  public srcImage?: any;
+  public imageName?: any;
+  public product: AngularFirestoreCollection<ProductModel>;
+  constructor(protected storage: AngularFireStorage, protected db: AngularFirestore) {
+    this.product = this.db.collection(this.path);
+  }
 
   insertImage = () => {
     return Promise.resolve(
@@ -35,15 +37,11 @@ export class ProductsService {
   };
 
   insertProduct(...details: any[]) {
-    // this.db.list(this.path).push({
-    //   title: details[0],
-    //   price: details[1],
-    //   url: details[2]
-    // })
     this.db.collection(this.path).add({
       title: details[0],
       price: details[1],
-      url: details[2]
+      url: details[2],
+      imageName: details[3],
     });
   }
 
@@ -54,7 +52,7 @@ export class ProductsService {
 
       await this.insertImage();
       this.downloadURL = await ref.getDownloadURL().subscribe(value => {
-        this.insertProduct(this.title, this.price, value);
+        this.insertProduct(this.title, this.price, value, this.file.name);
       });
     }
     catch (error) {
@@ -72,9 +70,14 @@ export class ProductsService {
     );
   }
 
-  get(id: any): any {
-    return this.db.collection(this.path).doc(id).get().subscribe((res: any) => {
-      return ({ id: res.id, ...res.data() });
+  getProduct(id: any): any {
+    // return this.db.collection(this.path).doc(id).get().subscribe((res: any) => {
+    //   return ({ id: res.id, ...res.data() });
+    // });
+    return new Observable(obs => {
+      this.product.doc(id).get().subscribe(res => {
+        obs.next({ id: res.id, ...res.data() });
+      });
     });
   }
 

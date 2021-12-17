@@ -5,6 +5,6 @@
         <p> <b>Prix:</b> {{productPrice}}€</p>
     </div>
     <div class="card-footer text-center">
-        <a href="#" class="btn btn-primary">Modifier</a>
+        <a href='/product/update/{{productId}}' class="btn btn-primary" (click)="sendData()">Modifier</a>
     </div>
 </div>

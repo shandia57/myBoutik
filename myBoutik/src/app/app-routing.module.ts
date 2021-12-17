@@ -15,7 +15,8 @@ import { PanierComponent } from './pages/panier/panier.component';
 import { AdminComponent } from './admin/admin/admin.component';
 
 
-import { AdminProductComponent } from './layout/admin/admin-product/admin-product.component';
+import { UpdateProductComponent } from './admin/update-product/update-product.component';
+
 
 
 
@@ -33,7 +34,7 @@ const routes: Routes = [
   { path: 'promotions', component: PromotionsComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'admin', component: AdminComponent },
-  { path: 'test', component: AdminProductComponent },
+  { path: 'product/update/:id', component: UpdateProductComponent, pathMatch: 'full' },
 
 ];
 
