@@ -29,11 +29,9 @@
 
                 <div *ngFor="let product of products | async; let i = index;" class="col-md-auto">
                     <app-card [productTitle]="product.title" [productImage]="product.url" [productPrice]="product.price"
-                        id="{{product.id}}">
+                        [routerAdmin]="routerAdmin + product.id">
                     </app-card>
                 </div>
-
-
 
             </div>
 

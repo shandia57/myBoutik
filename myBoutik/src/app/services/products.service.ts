@@ -19,6 +19,9 @@ export class ProductsService {
   task?: AngularFireUploadTask;
   downloadURL: any;
 
+  change: boolean = false;
+
+
   public path?: any;
   public file?: any;
   public title?: any;
@@ -30,29 +33,50 @@ export class ProductsService {
     this.product = this.db.collection(this.path);
   }
 
-  insertImage = () => {
+  insertImage = (product: ProductModel) => {
     return Promise.resolve(
-      this.task = this.storage.upload(this.path + "/" + this.file.name, this.file)
+      this.task = this.storage.upload(this.path + "/" + product.imageName, this.file)
     );
   };
 
-  insertProduct(...details: any[]) {
+
+  insertProduct(product: ProductModel) {
     this.db.collection(this.path).add({
-      title: details[0],
-      price: details[1],
-      url: details[2],
-      imageName: details[3],
+      title: product.title,
+      price: product.price,
+      description: product.description,
+      quantity: product.quantity,
+      url: product.url,
+      imageName: product.imageName,
     });
   }
 
-  async insertProductDetails() {
+  updateUrlImage(product: ProductModel) {
     const ref = this.storage.ref(this.path + "/" + this.file.name);
+    this.downloadURL = ref.getDownloadURL().subscribe(value => {
+      console.log("first", value);
+      product.url = value;
+      this.update(product).subscribe(() => {
+        this.change = true;
+        setTimeout(() => {
+          this.change = false;
+          console.log("finished");
+        }, 3000);
+      })
+    });
+
+  }
+
+  async insertProductDetails(product: ProductModel) {
+    const ref = this.storage.ref(this.path + "/" + this.file.name);
+
 
     try {
 
-      await this.insertImage();
+      await this.insertImage(product);
       this.downloadURL = await ref.getDownloadURL().subscribe(value => {
-        this.insertProduct(this.title, this.price, value, this.file.name);
+        product.url = value;
+        this.insertProduct(product);
       });
     }
     catch (error) {
@@ -71,9 +95,6 @@ export class ProductsService {
   }
 
   getProduct(id: any): any {
-    // return this.db.collection(this.path).doc(id).get().subscribe((res: any) => {
-    //   return ({ id: res.id, ...res.data() });
-    // });
     return new Observable(obs => {
       this.product.doc(id).get().subscribe(res => {
         obs.next({ id: res.id, ...res.data() });
@@ -81,34 +102,15 @@ export class ProductsService {
     });
   }
 
-  update(id: any) {
-    return this.db.collection(this.path).doc(id).update(id);
+  update(singleProduct: ProductModel) {
+    return new Observable(obs => {
+      this.product.doc(singleProduct.id).update(singleProduct);
+      obs.next();
+    });
 
   }
   delete(id: any) {
-    this.db.doc(`films/${id}`).delete();
+    this.db.doc(`${this.path}/${id}`).delete();
   }
-
-
-  // get(id: any): any {
-  //   return new Observable(obs => {
-  //     this.filmsRef.doc(id).get().subscribe(res => {
-  //       obs.next({ id: res.id, ...res.data() });
-  //     });
-  //   });
-  // }
-
-  // update(film: Film) {
-  //   return new Observable(obs => {
-  //     this.filmsRef.doc(film.id).update(film);
-  //     obs.next();
-  //   });
-  // }
-  // delete(id: any) {
-  //   this.db.doc(`films/${id}`).delete();
-  // }
-
-
-
 
 }

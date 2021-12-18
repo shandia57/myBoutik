@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { PullServiceService } from "../../services/pulls/pull-service.service";
+
 
 
 @Component({
@@ -10,11 +9,10 @@ import { PullServiceService } from "../../services/pulls/pull-service.service";
 })
 export class AdminComponent implements OnInit {
 
-  // DB
-  products!: any;
 
-  constructor(private Product: PullServiceService) {
-    this.products = this.Product.getAllProducts();
+
+  constructor() {
+
   }
 
   ngOnInit() { }

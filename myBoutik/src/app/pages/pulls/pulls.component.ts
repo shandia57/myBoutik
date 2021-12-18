@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
-import { Observable } from 'rxjs';
-import { map, toArray } from 'rxjs/operators';
 
 
 
@@ -11,13 +9,13 @@ import { map, toArray } from 'rxjs/operators';
   styleUrls: ['./pulls.component.scss']
 })
 export class PullsComponent implements OnInit {
-  productImage = "assets/images/home/image_desktop_1.jpg";
-  productTitle = "Nouvelle veste";
-  productPrice = "50";
+
 
   products!: any;
   fusion!: any;
   keys!: any;
+
+  routerAdmin = "pulls/";
 
 
   constructor(private Product: ProductsService) {

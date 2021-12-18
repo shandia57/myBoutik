@@ -1,48 +1,29 @@
 <div class="adminNav">
     <ul class="nav justify-content-center">
         <li class="nav-item">
-            <a class="nav-link" href="#">Vestes</a>
+            <a class="nav-link" href="/admin/vestes">Vestes</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Pulls</a>
+            <a class="nav-link" href="/admin/pulls/">Pulls</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">T-Shirts</a>
+            <a class="nav-link" href="/admin/tshirts">T-Shirts</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Pontalon</a>
+            <a class="nav-link" href="/admin/pontalons">Pontalons</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Chaussures</a>
+            <a class="nav-link" href="/admin/chaussures">Chaussures</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Aceesoires</a>
+            <a class="nav-link" href="/admin/accessoires">Aceesoires</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Promtions</a>
+            <a class="nav-link" href="/admin/promotions">Promtions</a>
         </li>
     </ul>
 </div>
 
 <div class="container text-center">
-
-    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalAddProduct">Ajouter un
-        produit</button>
-
-    <div class="row">
-        <div *ngFor="let product of products | async" class="col-md-auto">
-            <app-admin-product [productTitle]="product.title" [productImage]="product.url"
-                [productPrice]="product.price" [productId]="product.id">
-            </app-admin-product>
-        </div>
-    </div>
-
-
+    <h2>Admin toolbar</h2>
 </div>
-
-
-
-
-
-<!-- Modal Create-->
-<app-create-product></app-create-product>

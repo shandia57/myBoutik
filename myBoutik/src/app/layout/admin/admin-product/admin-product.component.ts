@@ -12,6 +12,7 @@ export class AdminProductComponent implements OnInit {
   @Input() productTitle?: string;
   @Input() productPrice?: string;
   @Input() productId?: string;
+  @Input() routerAdmin?: string;
 
 
 
@@ -19,9 +20,6 @@ export class AdminProductComponent implements OnInit {
 
   ngOnInit(): void { }
 
-  sendData() {
-    console.log("coucou");
-    console.log(this.productId);
-  }
+  sendData() { }
 
 }

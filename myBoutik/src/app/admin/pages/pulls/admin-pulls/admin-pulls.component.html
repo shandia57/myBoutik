@@ -1,0 +1,20 @@
+<app-admin></app-admin>
+
+<div class="container text-center">
+    <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalAddProduct">Ajouter un
+        produit</button>
+
+    <div class="row">
+        <div *ngFor="let product of products | async" class="col-md-auto">
+            <app-admin-product [productTitle]="product.title" [productImage]="product.url"
+                [productPrice]="product.price" [routerAdmin]=" routerAdmin + product.id ">
+            </app-admin-product>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal Create-->
+<app-create-product></app-create-product>
