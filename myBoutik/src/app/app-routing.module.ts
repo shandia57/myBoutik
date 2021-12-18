@@ -46,7 +46,7 @@ const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'admin', component: AdminComponent },
 
-  { path: 'pulls/:id', component: PullsComponent, pathMatch: 'full' },
+  { path: 'pulls/:id', component: PullsDetailsComponent, pathMatch: 'full' },
 
 
 
