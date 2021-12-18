@@ -17,6 +17,8 @@ export class PullsDetailsComponent implements OnInit {
   product?: any;
 
 
+
+
   constructor(private Product: PullServiceService, private route: ActivatedRoute) {
     const id = this.route.snapshot.params.id;
     this.Product.getProduct(id).subscribe((value: any) => {
@@ -25,6 +27,11 @@ export class PullsDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  addToCart() {
+    this.Product.insertToCard(this.product);
+    console.log("finished");
   }
 
 }

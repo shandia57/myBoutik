@@ -113,4 +113,14 @@ export class ProductsService {
     this.db.doc(`${this.path}/${id}`).delete();
   }
 
+  insertToCard(product: ProductModel) {
+    this.db.collection("cart").add({
+      id: product.id,
+      title: product.title,
+      price: product.price,
+      quantity: 1,
+      url: product.url,
+    });
+  }
+
 }
