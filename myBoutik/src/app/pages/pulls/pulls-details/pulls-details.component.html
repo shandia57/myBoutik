@@ -7,7 +7,7 @@
 
             <div class="row">
                 <div class="thumbnail">
-                    <img class="img-responsive" src="{{product.url}}" style="width: 100%;" alt="">
+                    <img class="imgDetails" src="{{product.url}}">
                     <div class="caption-full">
                         <h2>Description</h2>
                         <p> {{product.description}} </p>
@@ -66,14 +66,14 @@
         <div class="col-md-3">
             <h2> {{product.title}} </h2>
             <p class="lead">Acheter de produit</p>
-            <select class="form-select" aria-label="Default select example">
+            <select id="selectSizeProduct" class="form-select" [(ngModel)]="product.size">
                 <option selected>Choisissez la taille</option>
-                <option value="1">XS</option>
-                <option value="2">S</option>
-                <option value="3">M</option>
-                <option value="4">L</option>
-                <option value="5">XL</option>
-                <option value="6">xXL</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
             </select>
 
             <div class="position-relative">

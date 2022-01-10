@@ -12,18 +12,14 @@ export class PullsComponent implements OnInit {
 
 
   products!: any;
-  fusion!: any;
-  keys!: any;
-
   routerAdmin = "pulls/";
 
 
   constructor(private Product: ProductsService) {
     this.Product.path = "pulls";
     this.products = this.Product.getAllProducts();
-
   }
-  // 
+
   ngOnInit(): void {
   }
 

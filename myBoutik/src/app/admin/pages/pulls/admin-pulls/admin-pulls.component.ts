@@ -8,6 +8,7 @@ import { PullServiceService } from "../../../../services/pulls/pull-service.serv
 })
 export class AdminPullsComponent implements OnInit {
 
+  pathToNewProduct = "pulls"
   // DB
   products!: any;
   routerAdmin = "admin/pulls/";

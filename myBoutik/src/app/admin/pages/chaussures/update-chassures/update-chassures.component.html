@@ -1,1 +1,57 @@
-<p>update-chassures works!</p>
+<app-admin></app-admin>
+
+<div class="container">
+    <div class="row marginTop">
+
+
+        <div class="col-md-6 ">
+
+            <div class="row justify-content-md-center marginTop ">
+
+                <div class=" mb-3">
+                    <label class="form-label">Titre du produit</label>
+                    <input type="text" class="form-control" name="title" [(ngModel)]="product.title">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Prix du produit</label>
+                    <input type="text" class="form-control" name="price" [(ngModel)]="product.price">
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea type="text" class="form-control" [(ngModel)]="product.description" name="price"
+                        placeholder="Ecrivez une peite description"></textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Quantité</label>
+                    <input type="number" class="form-control" [(ngModel)]="product.quantity" name="price"
+                        placeholder="Entre le nombre de quantité en sotck">
+                </div>
+
+                <div class="mb-3 position-relative">
+                    <button id="" type="button" class="btn btn-danger" (click)="delete()">Supprimer</button>
+                    <button id="" type="button" class="btn btn-primary" (click)="update()">Modifier les détails</button>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div class="col-md-6 ">
+            <label class="form-label">Image actuelle</label>
+            <img id="myimg" [src]="product.url">
+
+            <div class="col-md-10 margin-top">
+                <label for="">Modifier l'image</label>
+                <input type="file" style="width:100%;" [(ngModel)]="product.imageName" accept="image/*"
+                    class="form-control" (change)="showPreview($event)">
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>

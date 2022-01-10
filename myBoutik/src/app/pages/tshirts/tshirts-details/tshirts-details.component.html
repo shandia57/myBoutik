@@ -1,0 +1,99 @@
+<!-- Page Content -->
+<div class="container">
+    <div class="row">
+
+
+        <div class="col-md-9">
+
+            <div class="row">
+                <div class="thumbnail">
+                    <img src="{{product.url}}">
+                    <div class="caption-full">
+                        <h2>Description</h2>
+                        <p> {{product.description}} </p>
+                    </div>
+                </div>
+
+                <div class="well">
+                    <hr />
+                    <h2>Actuellement 3 avis</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="label label-info">Prénom Nom</span>
+                            <span class="label label-default pull-right">28/01/2015</span>
+                            <p>Un commentaire sur le produit, rédigé par un client, sera affiché à cet endroit.</p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="label label-info">Prénom Nom</span>
+                            <span class="label label-default pull-right">28/01/2015</span>
+                            <p>Un commentaire sur le produit, rédigé par un client, sera affiché à cet endroit.</p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="label label-info">Prénom Nom</span>
+                            <span class="label label-default pull-right">28/01/2015</span>
+                            <p>Un commentaire sur le produit, rédigé par un client, sera affiché à cet endroit.</p>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                    <div>
+                        <form>
+                            <div class="form-group">
+                                <label for="name">Votre nom</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Votre avis</label>
+                                <textarea class="form-control" name="comment" rows="3"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-info">Envoyer mon avis</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <h2> {{product.title}} </h2>
+            <p class="lead">Acheter de produit</p>
+            <select id="selectSizeProduct" class="form-select" [(ngModel)]="product.size">
+                <option selected>Choisissez la taille</option>
+                <option value="XS">XS</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+            </select>
+
+            <div class="position-relative">
+                <div>
+                    <p> {{product.price}}€ </p>
+                </div>
+                <div>
+                    <p>Livraison gratuite</p>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-danger" (click)="addToCart()">Ajouter ce porduit au panier</button>
+
+        </div>
+    </div>
+
+    <hr />
+
+    <!-- Footer -->
+    <footer>
+        <p>Copyright &copy; Shoefony 2019</p>
+    </footer>
+</div>

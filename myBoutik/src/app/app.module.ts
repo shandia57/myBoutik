@@ -1,14 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import { AppRoutingModule } from './app-routing.module';
+
 // Pages
 import { AppComponent } from './app.component';
 import { VestesComponent } from './pages/vestes/vestes.component';
 import { PullsComponent } from './pages/pulls/pulls.component';
-import { PullsDetailsComponent } from './pages/pulls/pulls-details/pulls-details.component';
 import { TshirtsComponent } from './pages/tshirts/tshirts.component';
 import { PontalonsComponent } from './pages/pontalons/pontalons.component';
 import { ChaussuresComponent } from './pages/chaussures/chaussures.component';
@@ -18,6 +16,15 @@ import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { CardProductComponent } from './layout/card-product/card-product.component';
+
+// Pages Details
+import { PullsDetailsComponent } from './pages/pulls/pulls-details/pulls-details.component';
+import { VestesDetailsComponent } from './pages/vestes/vestes-details/vestes-details.component';
+import { TshirtsDetailsComponent } from './pages/tshirts/tshirts-details/tshirts-details.component';
+import { PontalonsDetailsComponent } from './pages/pontalons/pontalons-details/pontalons-details.component';
+import { ChaussuresDetailsComponent } from './pages/chaussures/chaussures-details/chaussures-details.component';
+import { AccessoiresDetailsComponent } from './pages/accessoires/accessoires-details/accessoires-details.component';
+
 
 import { CreateProductComponent } from './admin/create-product/create-product.component';
 import { UpdateProductComponent } from './admin/update-product/update-product.component';
@@ -58,6 +65,7 @@ import { MatInputModule } from '@angular/material/input';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +99,11 @@ import { MatInputModule } from '@angular/material/input';
     AdminPullsComponent,
     UpdatePullsComponent,
     PullsDetailsComponent,
+    VestesDetailsComponent,
+    TshirtsDetailsComponent,
+    PontalonsDetailsComponent,
+    ChaussuresDetailsComponent,
+    AccessoiresDetailsComponent,
   ],
   imports: [
     BrowserModule,

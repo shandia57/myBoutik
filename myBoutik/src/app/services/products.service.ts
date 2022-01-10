@@ -114,13 +114,31 @@ export class ProductsService {
   }
 
   insertToCard(product: ProductModel) {
-    this.db.collection("cart").add({
+    this.db.collection("cart").doc(product.title).set({
       id: product.id,
       title: product.title,
       price: product.price,
+      description: product.description,
       quantity: 1,
       url: product.url,
+      size: product.size,
     });
   }
+
+  getAllProductsFromCart() {
+    return this.db.collection("cart").snapshotChanges().pipe(
+      map((changes: any) => {
+        return changes.map((doc: any) => {
+          return ({ id: doc.payload.doc.id, ...doc.payload.doc.data() })
+        })
+      })
+    );
+  }
+
+
+  deleteProductFromCart(id: any) {
+    this.db.doc(`cart/${id}`).delete();
+  }
+
 
 }

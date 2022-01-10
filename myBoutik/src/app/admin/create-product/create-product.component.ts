@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ProductsService } from "../../services/products.service";
 import { ProductModel } from "../../models/product-model";
 
@@ -8,18 +8,17 @@ import { ProductModel } from "../../models/product-model";
   styleUrls: ['./create-product.component.scss']
 })
 export class CreateProductComponent implements OnInit {
-
+  @Input() path?: string;
   // img link
+
   selectedImage: any = null;
 
-  // DB
-  path = "pulls";
 
   // model
   product!: ProductModel;
 
   constructor(private Product: ProductsService) {
-    this.Product.path = "pulls";
+    this.Product.path = this.path;
   }
 
   ngOnInit() {

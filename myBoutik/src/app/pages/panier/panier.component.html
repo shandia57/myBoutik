@@ -1,1 +1,20 @@
-<p>panier works!</p>
+<div class="container">
+    <h1>Votre panier</h1>
+    <div class="containerProduct">
+        <div *ngFor="let product of products | async; let index = index " class="cartProduct">
+            <div class="containerImg"><img src="{{product.url}}"></div>
+            <div class="containerDetailsProduct">
+                <ul>
+                    <li> <b>{{product.title}}</b> </li>
+                    <li><b>Description : </b> {{product.description}}</li>
+                    <li><b>Taille : </b> {{product.size}}</li>
+                    <li> <b>Quantités : </b> {{product.quantity}}</li>
+                    <li> <button class="btn btn-outline-danger" (click)="deleteProductToCart(this.product)">Retirer ce
+                            produit du panier</button> </li>
+                </ul>
+            </div>
+            <div class="priceProduct"> <b>{{product.price}}€</b> </div>
+            <hr>
+        </div>
+    </div>
+</div>

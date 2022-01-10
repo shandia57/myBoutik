@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from "../../services/products.service";
 
 @Component({
   selector: 'app-chaussures',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chaussures.component.scss']
 })
 export class ChaussuresComponent implements OnInit {
+  products!: any;
+  routerAdmin = "chaussures/";
 
-  constructor() { }
+  constructor(private Product: ProductsService) {
+    this.Product.path = "chaussures";
+    this.products = this.Product.getAllProducts();
+  }
 
   ngOnInit(): void {
   }

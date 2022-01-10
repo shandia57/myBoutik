@@ -19,6 +19,8 @@ export class UpdatePullsComponent implements OnInit {
 
   test?: string;
 
+  urlToNavigate = "/admin/pulls";
+
 
   constructor(private Product: PullServiceService, private route: ActivatedRoute, private router: Router) {
     const id = this.route.snapshot.params.id;
@@ -54,14 +56,14 @@ export class UpdatePullsComponent implements OnInit {
     if (this.isImageChanged) {
       await this.Product.insertImage(this.product);
       this.product = await this.Product.updateUrlImage(this.product);
-      this.router.navigateByUrl('/admin/pulls');
+      this.router.navigateByUrl(this.urlToNavigate);
     } else {
       this.Product.update(this.product).subscribe(() => {
         this.change = true;
         setTimeout(() => {
           this.change = false;
           console.log("finished");
-          this.router.navigateByUrl('/admin/pulls');
+          this.router.navigateByUrl(this.urlToNavigate);
         }, 1000);
       })
     }
@@ -72,7 +74,7 @@ export class UpdatePullsComponent implements OnInit {
   delete() {
     if (confirm("Are you sure you want to delete")) {
       this.Product.delete(this.product.id);
-      this.router.navigateByUrl('/admin/pulls');
+      this.router.navigateByUrl(this.urlToNavigate);
     }
   }
 

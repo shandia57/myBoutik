@@ -6,6 +6,7 @@ export class ProductModel {
     imageName: string;
     description: string;
     quantity: string;
+    size: string;
 
     constructor() {
         this.title = "";
@@ -14,6 +15,7 @@ export class ProductModel {
         this.imageName = "";
         this.description = "";
         this.quantity = "";
+        this.size = "";
     }
 
 }

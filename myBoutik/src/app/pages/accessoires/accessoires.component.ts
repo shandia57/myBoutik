@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductsService } from "../../services/products.service";
+
 
 @Component({
   selector: 'app-accessoires',
@@ -6,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./accessoires.component.scss']
 })
 export class AccessoiresComponent implements OnInit {
+  products!: any;
+  routerAdmin = "accessoires/";
 
-  constructor() { }
+  constructor(private Product: ProductsService) {
+    this.Product.path = "accessoires";
+    this.products = this.Product.getAllProducts()
+  }
 
   ngOnInit(): void {
   }

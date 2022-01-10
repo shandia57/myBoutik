@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { VestesComponent } from './pages/vestes/vestes.component';
 import { PullsComponent } from './pages/pulls/pulls.component';
-import { PullsDetailsComponent } from './pages/pulls/pulls-details/pulls-details.component';
 import { TshirtsComponent } from './pages/tshirts/tshirts.component';
 import { PontalonsComponent } from './pages/pontalons/pontalons.component';
 import { ChaussuresComponent } from './pages/chaussures/chaussures.component';
@@ -14,6 +13,16 @@ import { PromotionsComponent } from './pages/promotions/promotions.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
 import { PanierComponent } from './pages/panier/panier.component';
 import { AdminComponent } from './admin/admin/admin.component';
+
+
+// Pages Details
+import { PullsDetailsComponent } from './pages/pulls/pulls-details/pulls-details.component';
+import { VestesDetailsComponent } from './pages/vestes/vestes-details/vestes-details.component';
+import { TshirtsDetailsComponent } from './pages/tshirts/tshirts-details/tshirts-details.component';
+import { PontalonsDetailsComponent } from './pages/pontalons/pontalons-details/pontalons-details.component';
+import { ChaussuresDetailsComponent } from './pages/chaussures/chaussures-details/chaussures-details.component';
+import { AccessoiresDetailsComponent } from './pages/accessoires/accessoires-details/accessoires-details.component';
+
 
 // admin pages
 import { AdminVestesComponent } from './admin/pages/vestes/admin-vestes/admin-vestes.component';
@@ -34,7 +43,7 @@ import { UpdatePromotionsComponent } from './admin/pages/promotions/update-promo
 // 
 const routes: Routes = [
 
-
+  // Pages
   { path: '', component: HomepageComponent },
   { path: 'vestes', component: VestesComponent },
   { path: 'pulls', component: PullsComponent },
@@ -43,10 +52,17 @@ const routes: Routes = [
   { path: 'chaussures', component: ChaussuresComponent },
   { path: 'accessoires', component: AccessoiresComponent },
   { path: 'promotions', component: PromotionsComponent },
+  { path: 'panier', component: PanierComponent },
   { path: 'connexion', component: ConnexionComponent },
   { path: 'admin', component: AdminComponent },
 
+  // Pages Details
   { path: 'pulls/:id', component: PullsDetailsComponent, pathMatch: 'full' },
+  { path: 'vestes/:id', component: VestesDetailsComponent, pathMatch: 'full' },
+  { path: 'tshirts/:id', component: TshirtsDetailsComponent, pathMatch: 'full' },
+  { path: 'pontalons/:id', component: PontalonsDetailsComponent, pathMatch: 'full' },
+  { path: 'chaussures/:id', component: ChaussuresDetailsComponent, pathMatch: 'full' },
+  { path: 'accessoires/:id', component: AccessoiresDetailsComponent, pathMatch: 'full' },
 
 
 

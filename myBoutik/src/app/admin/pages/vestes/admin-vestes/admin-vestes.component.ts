@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { VestesServiceService } from "../../../../services/vestes/vestes-service.service";
+
 
 @Component({
   selector: 'app-admin-vestes',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminVestesComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  pathToNewProduct = "vestes";
+  // DB
+  products!: any;
+  routerAdmin = "admin/vestes/";
+
+  constructor(private Product: VestesServiceService) {
+    this.products = this.Product.getAllProducts();
   }
+
+  ngOnInit(): void { }
 
 }
