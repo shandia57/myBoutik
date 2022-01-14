@@ -16,6 +16,7 @@ export class PullsDetailsComponent implements OnInit {
     const id = this.route.snapshot.params.id;
     this.Product.getProduct(id).subscribe((value: any) => {
       this.product = value;
+      console.log(this.product)
     });
   }
 

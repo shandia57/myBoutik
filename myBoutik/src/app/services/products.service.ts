@@ -8,8 +8,6 @@ import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 
 
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -69,8 +67,6 @@ export class ProductsService {
 
   async insertProductDetails(product: ProductModel) {
     const ref = this.storage.ref(this.path + "/" + this.file.name);
-
-
     try {
 
       await this.insertImage(product);
